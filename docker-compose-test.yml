@@ -18,21 +18,3 @@ services:
     env_file:
       - ./back-end/.env.test
   
-  didistudents_react:
-    build: ./front-end
-    container_name: didistudents_react
-    volumes: 
-      - build_react:/var/www/html
-  
-  nginx:
-    build: ./nginx
-    container_name: nginx
-    ports:
-      - 80:80
-    volumes: 
-      - build_react:/var/www/html
-    depends_on:
-      - didistudents_react
-
-volumes:
-  build_react:
